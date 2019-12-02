@@ -1,9 +1,24 @@
-import React from 'react'
+import React from 'react';
 
-export default function CoolButton(props) {
+const CoolButton = (props) => {
+
+  console.log(props)
+
+  const { isSmall, isDanger, className, isSuccess, children } = props
+
+  const classNameString = `
+    button
+    ${className}
+    ${isSmall ? 'is-small' : ''}
+    ${isDanger ? 'is-danger' : ''}
+    ${isSuccess ? 'is-success' : ''}
+  `
+
   return (
-    <div>
-      <button className={props.className}>{props.name}</button>
-    </div>
+    <button className={classNameString}>
+      {children}{props.name}
+    </button>
   )
-}
+};
+
+export default CoolButton;
